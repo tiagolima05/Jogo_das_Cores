@@ -1,6 +1,6 @@
 /*Funcionando*/
 
-let cores = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure",
+const cores = new Array("AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure",
 "Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood",
 "CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan",
 "DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue",
@@ -19,51 +19,65 @@ let cores = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure",
 "Tan","Teal","Thistle","Tomato","Turquoise",
 "Violet",
 "Wheat","White","WhiteSmoke",
-"Yellow","YellowGreen"];
+"Yellow","YellowGreen");
 
-function escolherCor() {
-  return cores[Math.floor(Math.random() * cores.length)]; 
-}
+var coresSorteadas = new Array();
 
-let opcoesDeCores = [];
+function sorteioCores() {
+    for (var i = 0; i < 10; i++) {
+        var verificar = false;
+        var corSorteada;
+        do {
+            corSorteada = cores[Math.floor(Math.random() * 140)];
 
-let opcaoCerta = escolherCor();
-opcoesDeCores.push(opcaoCerta);
+            for (var x = 1; x <= coresSorteadas.length; x++) {
+                if (corSorteada == coresSorteadas[x]) {
+                    verificar = false;
+                } else if (x == coresSorteadas.length) {
+                    verificar = true;
+                }
+            }
 
-while (opcoesDeCores.length < 10) {
-    
-  let novaCor = escolherCor();
-
-  if (opcoesDeCores.indexOf(novaCor) == -1) {
-    opcoesDeCores.push(novaCor);    
-  }   
-}
-
-opcoesDeCores.sort();
-
-function check(chute) {
-  if (opcoesDeCores.includes(chute)){
-      return true;
-  }
-  return false;
-}
-
-function comecar(){
-  while (true){
-    let chute = prompt(`Estou pensando em uma dessas cores:\n\n${opcoesDeCores[0]}, ${opcoesDeCores[1]}, ${opcoesDeCores[2]}, ${opcoesDeCores[3]}, ${opcoesDeCores[4]}, ${opcoesDeCores[5]}, ${opcoesDeCores[6]}, ${opcoesDeCores[7]}, ${opcoesDeCores[8]}, ${opcoesDeCores[9]}\n\nQual dessas cores eu estou pensando hein?`);
-    
-    if (opcaoCerta == chute) {
-        document.body.style.backgroundColor = opcaoCerta;
-        alert(`Opção correta!! Parabéns!!`);
-        return true;
+            if (coresSorteadas.length == 0) {
+                verificar = true;
+            }
+        } while (verificar == false);
+        
+        coresSorteadas[i] = corSorteada;
     }
-    
-    if (!check(chute)){
-        alert(`Ai não! Têm que digitar uma dessas cores.`);
-    } else if (chute > opcaoCerta) {
-        alert(`Errou!!! Foi na trave, então toma essa dica: Sua cor é menor na ordem alfabética do que a que eu pensei. Tente denovo.`);
-    } else if (chute < opcaoCerta){
-        alert(`Vish! Foi no travessão, então toma essa dica: Sua cor é maior em ordem alfabética do que a que eu pensei. Tente denovo.`)
-    }   
-  }
+}
+
+function continuacao() {
+    var corEscolhida = coresSorteadas[Math.floor(Math.random() * 10)];
+    console.log(typeof corEscolhida);
+    var acertou = false;
+
+    do {
+        var mensagem = "Eu estou pensando em uma dessas cores: \n";
+
+        for (var i = 0; i < 10; i++) {
+            mensagem += coresSorteadas[i] + ", ";
+        }
+
+        mensagem += "\n\nTente adivinhar qual cor eu escolhi:";
+        var inputUsuario = prompt(mensagem);
+        console.log(inputUsuario);        
+
+        if (inputUsuario.toLowerCase() == corEscolhida.toLowerCase()) {
+            document.body.style.backgroundColor = corEscolhida;
+            acertou = true;
+        } else {
+            let letraInput = inputUsuario.charAt(0).toLowerCase();
+            let letraCorSorteada = corEscolhida.charAt(0).toLowerCase();
+            if (letraInput < letraCorSorteada) {
+                alert("Por pouco!!! A cor que você escolheu começa com a letra " + letraInput + ".\n\nA minha cor é alfabeticamente maior que a sua. Vamo lá, tente novamente.");
+            } else if (letraInput > letraCorSorteada) {
+                alert("Na trave!! A cor que você escolheu começa com a letra " + letraInput + ".\n\nA sua cor é alfabeticamente maior que à minha. Sem medo errar, tente novamente.");
+            } else if (letraInput == letraCorSorteada) {
+                alert("A cor que você escolheu começa com a letra " + letraInput + ".\n\nA sua cor começa com a mesma letra que a minha. Tente novamente.");
+            } else {
+                alert("Ocorreu algum erro.");
+            }
+        }
+    } while (acertou == false);
 }
