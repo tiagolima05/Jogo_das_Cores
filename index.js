@@ -77,11 +77,11 @@ function continuacao() {
             let letraInput = inputUsuario.charAt(0).toLowerCase();
             let letraCorSorteada = corEscolhida.charAt(0).toLowerCase();
             if (letraInput < letraCorSorteada) {
-                alert("Por pouco!!!Você tá no caminho certo, A cor que você escolheu começa com a letra " + letraInput + ".\n\nE a minha cor é alfabeticamente maior que a sua. Vamo lá, tente novamente.");
+                alert("Por pouco!!!Você tá no caminho certo. A cor escolhida começa com " + letraInput + ".\n\nE a minha cor é alfabeticamente maior que a sua. Vamo lá, tente novamente.");
             } else if (letraInput > letraCorSorteada) {
-                alert("Na trave!! Tá chegando perto hein. A cor que você escolheu começa com a letra " + letraInput + ".\n\nQue tal uma dica: A sua cor é alfabeticamente maior que à minha. Sem medo errar, tente novamente.");
+                alert("Na trave!! Tá chegando perto hein. A cor escolhida começa com " + letraInput + ".\n\nQue tal uma dica: A sua cor é alfabeticamente maior que à minha. Sem medo errar, tente novamente.");
             } else if (letraInput == letraCorSorteada) {
-                alert("Tirou tinta do travessão! Você tá quase lá, a cor que você escolheu começa com a letra " + letraInput + ".\n\nE spoilers: A sua cor começa com a mesma letra que a minha. Falo mais nada, então tente novamente.");
+                alert("Tirou tinta do travessão! Você tá quase lá, a cor escolhida começa com " + letraInput + ".\n\nE spoilers: A sua cor começa com a mesma letra que a minha. Falo mais nada, então tente novamente.");
             } else {
                 alert("Vish, acho que ocorreu algum erro.");
             }
