@@ -1,14 +1,24 @@
 <!DOCTYPE html>
+<!--DOCTYPE informa ao agente de usuário a versão do html que deve ser renderizada-->
 <html lang="pt-br">
 <head>
+    <title>C2 - Advinhe a cor</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C2 - Jogo de Adivinhação das Cores</title>
+    <meta name="author" content="Raphael Ferreira de Moraes">
+    <meta name="description" content="Jogo para adivinhar uma cor escolhida pelo sistema">
+    <meta name="keywords" content="html, css, javascript, devweb">   
+    <link rel="stylesheet" href="index.css"> 
+    <style>
+        h1{
+            font-family: sans-serif;
+            text-transform: uppercase;
+            margin-left: 2em;
+        }
+    </style>
 </head>
 <body>
-  <script type="text/javascript" src="index.js"></script>
-</body>
+    <h1>Sorteio de cores</h1>
+    <script type="text/javascript" src="index.js"></script>
+    <button onClick="sorteioCores(), continuacao()">Jogar</button>
 </body>
 </html>
-
