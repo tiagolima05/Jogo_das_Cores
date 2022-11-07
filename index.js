@@ -21,6 +21,8 @@ const cores = new Array("AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure",
 "Wheat","White","WhiteSmoke",
 "Yellow","YellowGreen");
 
+/*Fazer variavel para cores sorteadas*/
+
 var coresSorteadas = new Array();
 
 function sorteioCores() {
@@ -47,6 +49,8 @@ function sorteioCores() {
     }
 }
 
+/*Inicio do jogo*/
+
 function continuacao() {
     var corEscolhida = coresSorteadas[Math.floor(Math.random() * 10)];
     console.log(typeof corEscolhida);
@@ -63,6 +67,8 @@ function continuacao() {
         var inputUsuario = prompt(mensagem);
         console.log(inputUsuario);        
 
+        /*Fazer as mensagens. Pensar em dicas.*/
+        
         if (inputUsuario.toLowerCase() == corEscolhida.toLowerCase()) {
             document.body.style.backgroundColor = corEscolhida;
             alert("Assim que se faz!!! Parebens, você acertou")
