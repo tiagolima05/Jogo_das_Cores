@@ -59,24 +59,25 @@ function continuacao() {
             mensagem += coresSorteadas[i] + ", ";
         }
 
-        mensagem += "\n\nTente adivinhar qual cor eu escolhi:";
+        mensagem += "\n\nVamos jogar um jogo? Tente adivinhar qual cor eu escolhi:";
         var inputUsuario = prompt(mensagem);
         console.log(inputUsuario);        
 
         if (inputUsuario.toLowerCase() == corEscolhida.toLowerCase()) {
             document.body.style.backgroundColor = corEscolhida;
+            alert("Assim que se faz!!! Parebens, você acertou")
             acertou = true;
         } else {
             let letraInput = inputUsuario.charAt(0).toLowerCase();
             let letraCorSorteada = corEscolhida.charAt(0).toLowerCase();
             if (letraInput < letraCorSorteada) {
-                alert("Por pouco!!! A cor que você escolheu começa com a letra " + letraInput + ".\n\nA minha cor é alfabeticamente maior que a sua. Vamo lá, tente novamente.");
+                alert("Por pouco!!!Você tá no caminho certo, A cor que você escolheu começa com a letra " + letraInput + ".\n\nE a minha cor é alfabeticamente maior que a sua. Vamo lá, tente novamente.");
             } else if (letraInput > letraCorSorteada) {
-                alert("Na trave!! A cor que você escolheu começa com a letra " + letraInput + ".\n\nA sua cor é alfabeticamente maior que à minha. Sem medo errar, tente novamente.");
+                alert("Na trave!! Tá chegando perto hein. A cor que você escolheu começa com a letra " + letraInput + ".\n\nQue tal uma dica: A sua cor é alfabeticamente maior que à minha. Sem medo errar, tente novamente.");
             } else if (letraInput == letraCorSorteada) {
-                alert("A cor que você escolheu começa com a letra " + letraInput + ".\n\nA sua cor começa com a mesma letra que a minha. Tente novamente.");
+                alert("Tirou tinta do travessão! Você tá quase lá, a cor que você escolheu começa com a letra " + letraInput + ".\n\nE spoilers: A sua cor começa com a mesma letra que a minha. Falo mais nada, então tente novamente.");
             } else {
-                alert("Ocorreu algum erro.");
+                alert("Vish, acho que ocorreu algum erro.");
             }
         }
     } while (acertou == false);
